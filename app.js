@@ -10,6 +10,8 @@ var requestTime = function (req, res, next) {
 app.use(requestTime)
 
 app.get('/', function (req, res) {
+  console.log(req)
+  console.log(res)
   var data = ""+req.requestTime
   res.send(data)
 })
