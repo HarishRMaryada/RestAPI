@@ -1,18 +1,14 @@
-const express = require('express')
 const config = require('config')
+const express = require('express')
+const fs = require('fs')
 
 const app = express()
 
-var requestTime = function (req, res, next) {
-  req.requestTime = Date.now()
-  next()
-}
 
-app.use(requestTime)
+app.use(require('./Controller'))
 
-app.get('/', function (req, res) {  
-  var data = ""+req.requestTime
-  res.send(data)
+app.get('/', function (req, res) {
+  res.send('Controller Aded')
 })
 
 
