@@ -1,4 +1,5 @@
 const express = require('express')
+const config = require('config')
 
 const app = express()
 
@@ -9,13 +10,11 @@ var requestTime = function (req, res, next) {
 
 app.use(requestTime)
 
-app.get('/', function (req, res) {
-  console.log(req)
-  console.log(res)
+app.get('/', function (req, res) {  
   var data = ""+req.requestTime
   res.send(data)
 })
 
 
 
-app.listen(7979, () => console.log('Example app listening on port 7979!'))
+app.listen(config.port, () => console.log(`Example app listening on port ${config.port}!`))
