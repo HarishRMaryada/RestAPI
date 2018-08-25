@@ -1,11 +1,30 @@
 const bodyParser = require('body-parser')
 const config = require('config')
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
 const express = require('express')
+const events = require('events')
 const fs = require('fs')
+const logger = require('morgan')
+const mongoose = require('mongoose')
+const path = require('path')
+
+
+const eventEmitter = new events.EventEmitter()
+
+// Database Connections
+var EventTest = () =>{
+  console.log('Test Events');
+}
+eventEmitter.on('scream', EventTest);
+eventEmitter.emit('scream');
+
 
 const app = express()
 
+app.use(cors())
+
+app.use(logger('dev'))
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
