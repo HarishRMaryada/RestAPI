@@ -1,8 +1,19 @@
+const bodyParser = require('body-parser')
 const config = require('config')
+const cookieParser = require('cookie-parser')
 const express = require('express')
 const fs = require('fs')
 
 const app = express()
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
+//parse cookie
+app.use(cookieParser())
 
 
 app.use(require('./Controller'))
