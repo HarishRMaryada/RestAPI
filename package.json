@@ -10,6 +10,7 @@
   "author": "Harish Maryada",
   "license": "ISC",
   "dependencies": {
+    "app-module-path": "^2.2.0",
     "body-parser": "^1.18.3",
     "config": "^2.0.1",
     "cookie-parser": "^1.4.3",
