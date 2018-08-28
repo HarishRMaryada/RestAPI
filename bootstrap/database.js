@@ -10,6 +10,7 @@ const options = {
   reconnectTries: 30
 };
 
+
 mongoose.connect(uri, options , (error)=>{
   console.log(error);
 })
