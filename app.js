@@ -9,6 +9,18 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const path = require('path')
 
+require('app-module-path').addPath(__dirname)
+
+
+process.on('uncaughtException',(err)=>{
+  console.log(err.stack)
+  if(err && err.message){
+      process.exit(1)
+      console.log(err.message)
+  }
+})
+
+
 
 const eventEmitter = new events.EventEmitter()
 
