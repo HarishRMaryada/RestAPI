@@ -46,8 +46,10 @@ app.use(bodyParser.json())
 //parse cookie
 app.use(cookieParser())
 
-
-app.use(require('./Controller'))
+var start = function(){
+  app.use(require('./Controller'))
+}
+start()
 
 //Error Handler - MiddleWare
 app.use(function (err, req, res, next) {
